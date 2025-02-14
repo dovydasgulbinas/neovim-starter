@@ -31,28 +31,28 @@ local plugins = {
 		},
 	},
 
-	{
-		"nvimtools/none-ls.nvim",
-		lazy = false,
-		ft = {
-			"python",
-			"javascript",
-			"lua",
-			"yaml",
-			"typescript",
-			"javascript",
-			"javascriptreact",
-			"typescriptreact",
-			"vue",
-			"json",
-			"html",
-			"css",
-			"nix",
-		},
-		opts = function()
-			return require("configs.none-ls")
-		end,
-	},
+	-- {
+	-- 	"nvimtools/none-ls.nvim",
+	-- 	lazy = false,
+	-- 	ft = {
+	-- 		"python",
+	-- 		"javascript",
+	-- 		"lua",
+	-- 		"yaml",
+	-- 		"typescript",
+	-- 		"javascript",
+	-- 		"javascriptreact",
+	-- 		"typescriptreact",
+	-- 		"vue",
+	-- 		"json",
+	-- 		"html",
+	-- 		"css",
+	-- 		"nix",
+	-- 	},
+	-- 	opts = function()
+	-- 		return require("configs.none-ls")
+	-- 	end,
+	-- },
 
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
@@ -130,7 +130,6 @@ local plugins = {
 			"rcarriga/nvim-dap-ui",
 		},
 		config = function(_, opts)
-			-- local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 			require("dap-python").setup("uv")
 			require("core.utils").load_mappings("dap_python")
 		end,
