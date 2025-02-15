@@ -1,6 +1,22 @@
 require "nvchad.mappings"
 local M = {}
 local dev_python = require "dev_python"
+local map = vim.keymap.set
+
+map("n", "<leader>gn", "<cmd> Neogit <cr>", { desc = "Open Neogit" })
+
+-- Python Development Mappings
+map("n", "<leader>pf", function()
+  dev_python.run_flake8_on_current_file()
+end, { desc = "Run flake8 on current file" })
+
+map("n", "<leader>pm", function()
+  dev_python.run_mypy()
+end, { desc = "Run mypy" })
+
+map("n", "<leader>pp", function()
+  dev_python.run_pre_commit()
+end, { desc = "Run pre-commit" })
 
 M.dap = {
   plugin = true,
@@ -29,38 +45,6 @@ M.dap_python = {
         require("dap-python").test_method()
       end,
       "Run nearest test w/ debugger",
-    },
-  },
-}
-
-M.dev_python = {
-  plugin = false,
-  n = {
-    ["<leader>pb"] = {
-      function()
-        dev_python.run_black_on_current_file()
-      end,
-      "Run black on current file",
-    },
-
-    ["<leader>pm"] = {
-      function()
-        dev_python.run_mypy()
-      end,
-      "Run mypy",
-    },
-
-    ["<leader>pf"] = {
-      function()
-        dev_python.run_flake8_on_current_file()
-      end,
-      "Run flake8 on current file",
-    },
-    ["<leader>pp"] = {
-      function()
-        dev_python.run_pre_commit()
-      end,
-      "Run pre-commit",
     },
   },
 }
