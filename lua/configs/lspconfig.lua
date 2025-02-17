@@ -30,6 +30,7 @@ local servers = {
     settings = {
       ltex = { language = "en-US" },
     },
+    filetypes = { "markdown", "tex", "latex", "text", "lr" },
   },
   ts_ls = {
     {
