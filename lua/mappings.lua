@@ -18,6 +18,12 @@ map("n", "<leader>pp", function()
   dev_python.run_pre_commit()
 end, { desc = "Run pre-commit" })
 
+-- Sourced from the original commit
+-- Write to buffer before insert of visual mode
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+
 M.dap = {
   plugin = true,
   n = {

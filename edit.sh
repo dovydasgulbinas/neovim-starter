@@ -8,6 +8,10 @@ echo "Starting Neovim Again!"
 
 nvim .
 
+git add -i 
+
+git commit
+
 popd
 
 
