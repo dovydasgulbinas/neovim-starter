@@ -7,7 +7,20 @@ local vue_language_server_path = mason_registry.get_package("vue-language-server
   .. "/node_modules/@vue/language-server"
 
 local servers = {
-  lua_ls = {},
+  lua_ls = {
+    settings = {
+      Lua = {
+        runtime = { version = "LuaJIT" },
+        diagnostics = {
+          globals = { "vim" }, -- Prevents 'undefined vim' warnings
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file("", true), -- Load Neovim runtime files
+        },
+        telemetry = { enable = false },
+      },
+    },
+  },
   html = {},
   bashls = {},
   dockerls = {},

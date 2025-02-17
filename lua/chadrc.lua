@@ -10,7 +10,7 @@ local M = {}
 -- M.mappings = require "mappings"
 
 M.base46 = {
-  theme = "catppuccin",
+  theme = "doomchad",
 
   hl_override = {
     Comment = { italic = true },
@@ -22,6 +22,17 @@ M.nvdash = { load_on_startup = true }
 M.ui = {
   tabufline = {
     lazyload = false,
+  },
+}
+
+M.term = {
+  float = {
+    relative = "editor",
+    row = 0.18,
+    col = 0.1,
+    width = 0.8,
+    height = 0.64,
+    border = "single",
   },
 }
 
