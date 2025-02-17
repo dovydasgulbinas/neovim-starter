@@ -26,6 +26,11 @@ local servers = {
   dockerls = {},
   rnix = {},
   cssls = {},
+  ltex = {
+    settings = {
+      ltex = { language = "en-US" },
+    },
+  },
   ts_ls = {
     {
       init_options = {

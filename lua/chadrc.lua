@@ -5,12 +5,8 @@
 ---@type ChadrcConfig
 local M = {}
 
--- probably not needed two lones below
--- M.plugins = "plugins"
--- M.mappings = require "mappings"
-
 M.base46 = {
-  theme = "doomchad",
+  theme = "eldritch",
 
   hl_override = {
     Comment = { italic = true },

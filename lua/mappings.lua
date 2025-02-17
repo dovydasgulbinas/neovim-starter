@@ -4,6 +4,9 @@ local dev_python = require "dev_python"
 local map = vim.keymap.set
 
 map("n", "<leader>gn", "<cmd> Neogit <cr>", { desc = "Open Neogit" })
+map("n", "<leader>tt", "<cmd> tabNext <cr>", { desc = "Next Tab" })
+map("n", "<leader>tn", "<cmd> tabNext <cr>", { desc = "Next Tab" })
+map("n", "<leader>tp", "<cmd> tabprevious <cr>", { desc = "Previous Tab" })
 
 -- Python Development Mappings
 map("n", "<leader>pf", function()
