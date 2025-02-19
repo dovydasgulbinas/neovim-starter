@@ -3,23 +3,24 @@ local M = {}
 local dev_python = require "dev_python"
 local map = vim.keymap.set
 
-map("n", "<leader>gn", "<cmd> Neogit <cr>", { desc = "Open Neogit" })
-map("n", "<leader>tt", "<cmd> tabNext <cr>", { desc = "Next Tab" })
-map("n", "<leader>tn", "<cmd> tabNext <cr>", { desc = "Next Tab" })
-map("n", "<leader>tp", "<cmd> tabprevious <cr>", { desc = "Previous Tab" })
+map("n", "<leader>gn", "<cmd> Neogit <cr>", { desc = "Neogit open in a new tab" })
+map("n", "<leader>tt", "<cmd> tabNext <cr>", { desc = "Tab go to Next" })
+map("n", "<leader>tn", "<cmd> tabNext <cr>", { desc = "Tab go to Next" })
+map("n", "<leader>tp", "<cmd> tabprevious <cr>", { desc = "Tab go to previous" })
+map("n", "<leader>td", "<cmd> Telescope diagnostics <cr>", { desc = "Telescope LSP diagnostics" })
 
 -- Python Development Mappings
 map("n", "<leader>pf", function()
   dev_python.run_flake8_on_current_file()
-end, { desc = "Run flake8 on current file" })
+end, { desc = "Python run flake8 on current file" })
 
 map("n", "<leader>pm", function()
   dev_python.run_mypy()
-end, { desc = "Run mypy" })
+end, { desc = "Python run mypy" })
 
 map("n", "<leader>pp", function()
   dev_python.run_pre_commit()
-end, { desc = "Run pre-commit" })
+end, { desc = "Python run pre-commit" })
 
 -- Sourced from the original commit
 -- Write to buffer before insert of visual mode
@@ -32,7 +33,7 @@ M.dap = {
   n = {
     ["<leader>db"] = {
       "<cmd> DapToggleBreakpoint <CR>",
-      "Add breakpoint at line",
+      "DAP Add breakpoint at line",
     },
 
     ["<leader>dus"] = {
@@ -41,7 +42,7 @@ M.dap = {
         local sidebar = widgets.sidebar(widgets.scopes)
         sidebar.open()
       end,
-      "Open debugging sidebar",
+      "DAP Open debugging sidebar",
     },
   },
 }
@@ -53,7 +54,7 @@ M.dap_python = {
       function()
         require("dap-python").test_method()
       end,
-      "Run nearest test w/ debugger",
+      "DAP Run nearest test w/ debugger",
     },
   },
 }
