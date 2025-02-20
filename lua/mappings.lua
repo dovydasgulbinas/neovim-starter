@@ -4,6 +4,9 @@ local dev_python = require "dev_python"
 local map = vim.keymap.set
 
 map("n", "<leader>gn", "<cmd> Neogit <cr>", { desc = "Neogit open in a new tab" })
+map("n", "<leader>gs", function()
+  dev_python.git_stage_current_buffer()
+end, { desc = "Git stage current file" })
 map("n", "<leader>tt", "<cmd> tabNext <cr>", { desc = "Tab go to Next" })
 map("n", "<leader>tn", "<cmd> tabNext <cr>", { desc = "Tab go to Next" })
 map("n", "<leader>tp", "<cmd> tabprevious <cr>", { desc = "Tab go to previous" })

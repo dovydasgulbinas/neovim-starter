@@ -38,4 +38,25 @@ function M.run_pre_commit()
   end
 end
 
+function M.git_stage_current_buffer()
+  -- Get the full path of the current buffer
+  local filepath = vim.fn.expand "%:p"
+
+  -- Ensure the file exists before running git add
+  if filepath == "" then
+    print "No file to stage!"
+    return
+  end
+  -- Run git add asynchronously
+  vim.fn.jobstart({ "git", "add", "--", filepath }, {
+    on_exit = function(_, code, _)
+      if code == 0 then
+        print("✅ Staged: " .. filepath)
+      else
+        print("❌ Failed to stage: " .. filepath)
+      end
+    end,
+  })
+end
+
 return M
