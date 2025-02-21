@@ -1,16 +1,19 @@
 require "nvchad.mappings"
-local M = {}
 local dev_python = require "dev_python"
 local map = vim.keymap.set
 
-map("n", "<leader>gn", "<cmd> Neogit <cr>", { desc = "Neogit open in a new tab" })
+-- git settings
+map("n", "<leader>gn", "<cmd> Neogit <cr>", { desc = "Git Neogit open in a new tab" })
 map("n", "<leader>gs", function()
   dev_python.git_stage_current_buffer()
 end, { desc = "Git stage current file" })
+map("n", "<leader>gb", "<cmd> Gitsigns blame <cr>", { desc = "Git Gitsigns blame the whole buffer" })
+
+-- tab settings
 map("n", "<leader>tt", "<cmd> tabNext <cr>", { desc = "Tab go to Next" })
 map("n", "<leader>tn", "<cmd> tabNext <cr>", { desc = "Tab go to Next" })
 map("n", "<leader>tp", "<cmd> tabprevious <cr>", { desc = "Tab go to previous" })
-map("n", "<leader>td", "<cmd> Telescope diagnostics <cr>", { desc = "Telescope LSP diagnostics" })
+map("n", "<leader>td", "<cmd> Telescope diagnostics <cr>", { desc = "LSP Telescope LSP diagnostics" })
 
 -- Python Development Mappings
 map("n", "<leader>pf", function()
@@ -31,6 +34,7 @@ map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+local M = {}
 M.dap = {
   plugin = true,
   n = {
